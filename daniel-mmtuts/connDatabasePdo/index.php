@@ -1,6 +1,7 @@
 
 <?php
- include_once 'includes/dbh.inc.php'
+    include_once 'includes/dbh.inc.php';
+    include_once 'includes/user.inc.php'
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,8 +16,8 @@
 
 <?php
 
-    $object = new Dbh();
-    $object->connect();
+    $object = new User();
+    echo $object->getUsersWithCountCheck();
 
 ?>
 
