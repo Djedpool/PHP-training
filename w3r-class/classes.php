@@ -140,3 +140,96 @@
 //}
 //$sortarray = new array_sort(array(11, -2, 4, 35, 0, 8, -9));
 //print_r($sortarray->alhsort())."\n";
+
+//-----Peti zadatak za klase w3c
+
+//$sdate = new DateTime("1981-11-03");
+//$edate = new DateTime("2013-09-04");
+//
+//$interval = $sdate->diff($edate);
+//
+//echo "Difference : " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days ";
+
+//-----Sesti zadatak za klase w3c
+
+//Moje resenje u zadatku se samo trazilo sabiranje i mnozenje.
+
+//class myCalculator{
+//
+//    private $fNumber;
+//    private $lNumber;
+//
+//    public function __construct($first, $sec) {
+//
+//        $this->fNumber = (int)$first;
+//        $this->lNumber = (int)$sec;
+//
+//    }
+//
+//    public function add() {
+//
+//        echo $this->fNumber + $this->lNumber;
+//
+//    }
+//
+//    public function mult(){
+//
+//        echo $this->fNumber * $this->lNumber;
+//
+//    }
+//
+//
+//}
+//
+//
+//$mycalc = new myCalculator(12, 6);
+//
+//$mycalc->add();
+//echo '<br>';
+//$mycalc->mult();
+
+//Resenje sa neta
+
+//class MyCalculator {
+//    private $_fval, $_sval;
+//    public function __construct( $fval, $sval ) {
+//        $this->_fval = $fval;
+//        $this->_sval = $sval;
+//    }
+//    public function add() {
+//        return $this->_fval + $this->_sval;
+//    }
+//    public function subtract() {
+//        return $this->_fval - $this->_sval;
+//    }
+//    public function multiply() {
+//        return $this->_fval * $this->_sval;
+//    }
+//    public function divide() {
+//        return $this->_fval / $this->_sval;
+//    }
+//}
+//$mycalc = new MyCalculator(12, 6);
+//echo $mycalc-> add()."\n"; // Displays 18
+//echo $mycalc-> multiply()."\n"; // Displays 72
+//echo $mycalc-> subtract()."\n"; // Displays 6
+//echo $mycalc-> divide()."\n"; // Displays 2
+
+
+//-----Sedmi zadatak za klase w3c
+
+//Moje resenje
+
+//$time = strtotime('12-08-2004');
+//
+//$expected = date('Y-m-d', $time);
+//
+//echo $expected;
+
+//Resenje sa sajta
+
+//Razlika koristi su OOP php
+
+
+//$dt = DateTime::createFromFormat('m-d-Y', '12-08-2004')->format('Y-m-d');
+//echo $dt;
