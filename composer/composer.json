@@ -1,0 +1,13 @@
+{
+    "require": {
+        "fzaninotto/faker": "^1.7",
+        "monolog/monolog": "^1.23",
+        "phpdocumentor/reflection-common": "^1.0.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Acme\\": "src/"
+        }
+    }
+}
