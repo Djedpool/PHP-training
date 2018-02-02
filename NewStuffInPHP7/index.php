@@ -245,3 +245,35 @@ echo '<pre>'. json_encode($_GET, JSON_PRETTY_PRINT).'</pre><br/>';
 $myVar = $personName ?? $_GET['name'] ?? 'Loz';
 
 echo $myVar;
+
+echo '<br>';
+
+//  5. Spaceship operator
+
+/*
+ *
+ * -1 less then
+ * 0 equal
+ * 1 greater then
+ *
+ *
+ * polymorphism is included
+ * int and string you know, php recognise a data type
+ * bool true, if it is not equal
+ * array count number of elements and count a value, go and play
+ * In if statement you can encapsulated an spaceship operator
+ *
+ */
+
+$spaceO = 2 <=> 2;
+
+echo $spaceO;
+
+echo '<br>';
+
+if( array(20,20, 200) <=> array(20,20,20,20) ){
+    echo 'Something happened';
+}
+
+
+//  5. Constant arrays using define 
