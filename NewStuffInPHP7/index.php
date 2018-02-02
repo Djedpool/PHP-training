@@ -351,4 +351,12 @@ echo '<br>';
 
 //  7. Unicode codepoint escape syntax
 
+//old example
+echo '&pound;'."<br/>";
+
+
+//new example
+//enter hexadecimal value of a symbol(find value on W3C HTML UTF8)
+echo "\u{2200}";
+
 echo '<br>';
