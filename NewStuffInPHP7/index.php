@@ -360,3 +360,36 @@ echo '&pound;'."<br/>";
 echo "\u{2200}";
 
 echo '<br>';
+
+
+//  8. Functional call context
+
+/*
+ * placing a function to variable, call method take  function as a object and only accept object
+ */
+
+$con = function () {
+
+
+    echo var_dump($this);//it can only be populated with object
+    echo $this->prop;
+
+};
+
+class newObj {
+
+    public $prop = 'hello world madafakas';
+
+}
+
+
+$con->call( new newObj());
+
+echo '<br>';
+
+//  9. Unserialize filtering
+
+
+
+
+
