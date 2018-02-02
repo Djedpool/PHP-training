@@ -298,4 +298,57 @@ echo '<br>';
 
 /*
  *
+ * Creating a class that we only exist one time in one variable, tou can inherit other classes,
+ * after this you can not use it again it will deleted/
+ *
  */
+
+class my {
+
+    public $hello = 'say hello';
+
+}
+
+interface reg {
+
+    public function print();
+
+}
+
+
+$framework = new class('read only param') extends my implements reg
+{
+
+    private $readOnly;
+
+    function __construct($ro) {
+        $this->readOnly = $ro;
+    }
+
+    public function print()
+    {
+
+        echo $this->readOnly;
+        echo '<br>';
+
+    }
+
+    static function hello() {
+
+        echo 'Hello';
+        echo '<br>';
+
+    }
+
+};
+
+$framework->print();
+$framework::hello();
+echo $framework->hello;
+
+echo '<br>';
+
+
+//  7. Unicode codepoint escape syntax
+
+echo '<br>';
