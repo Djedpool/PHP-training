@@ -275,5 +275,27 @@ if( array(20,20, 200) <=> array(20,20,20,20) ){
     echo 'Something happened';
 }
 
+echo '<br>';
 
-//  5. Constant arrays using define 
+//  5. Constant arrays using define
+
+/*
+ *  two ways of defining constants, first
+ *  with key word conts NAMEOFCONST = values(data type)
+ *  second is a Define method Define('NAME', datatype)
+ *  Whe is defined const can not be changed it has a lifespan of application
+ *
+ */
+
+const PERSON = array('PERSON', 200, true);
+Define('OFFICE', array('OFFICE', 400, true));//new way, array can be defined in this way
+echo json_encode(PERSON, 128).'<br/><br/>'.json_encode(OFFICE, 128);
+
+
+echo '<br>';
+
+//  6. Anonymous classes
+
+/*
+ *
+ */
