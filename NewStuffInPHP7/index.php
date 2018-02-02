@@ -390,6 +390,25 @@ echo '<br>';
 //  9. Unserialize filtering
 
 
+class newOne {
+
+    public $prop = 'hello world';
+
+    private $priv = 'This is private to the object';
+
+    private $arr = [20, 200, 500, 600];
+
+}
+
+$data = serialize(new newOne());//takes object and returning as a string
+
+echo  $data;
+
+echo '<br>';
+
+$unserialized = unserialize($data, ["allowed_classes" => ["newOne"]]);//second parameter is a filter what we can and what we can not serialize
+
+echo $unserialized->prop;
 
 
 
