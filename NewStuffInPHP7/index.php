@@ -410,5 +410,17 @@ $unserialized = unserialize($data, ["allowed_classes" => ["newOne"]]);//second p
 
 echo $unserialized->prop;
 
+//  10. Expectation
+
+
+ini_set('assert.exception', 1 );//setting and turing on with a 1(setting option or configuration from ini_set)
+
+class HandleError extends AssertionError{//regular class recive
+}
+
+$num = 'hello';
+
+assert(is_numeric($num ), new HandleError('some error text'));//assert construct, two parameters
+
 
 
