@@ -649,3 +649,90 @@ $control->send( 50 );
 echo '<br>... Analysing distance ... <br><br>';
 
 $control->send( 70 );
+
+echo '<br>';
+
+//  18. Generator new features
+
+function values() {
+
+    yield from gen2();
+
+    yield from[100, 200, 300];
+
+
+    return 500;
+
+}
+
+
+function gen2() {
+
+    yield 'This is from Gen1';
+    yield 'This is from Gen2';
+
+    yield from gen3();
+
+}
+
+function gen3() {
+
+    yield 'This is from Gen3';
+    yield 'This is from Gen4';
+
+}
+
+
+$crocop = values();
+
+foreach ($crocop as $value) {
+
+    echo '<br>'.$value;
+
+}
+
+
+echo '<br>'.$crocop->getReturn();
+
+echo '<br>';
+
+//  19. Deprecated features of PHP7
+
+class myClass {
+
+//    function myClass( $arg1 ) { //new way __construct name of method
+//
+//        $this->createProp = $arg1;
+//
+//    }
+
+
+    function method() {
+        echo 'method run!';
+    }
+
+}
+
+//$testing = new myClass('old style constructor');
+
+//echo $testing->createProp;
+
+myClass::method();//Do not call non static method like it a static
+
+echo '<br>';
+
+echo password_hash('passwords', PASSWORD_DEFAULT, array(
+//    'cost' => 15
+));
+
+
+echo '<br>';
+
+
+$fp = fopen('https://www.example.com', 'r');
+
+$meta = stream_get_meta_data($fp);
+
+echo '<pre>'. json_encode($meta, JSON_PRETTY_PRINT). '</pre>';
+
+fclose($fp);
