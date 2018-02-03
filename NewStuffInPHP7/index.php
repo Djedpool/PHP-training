@@ -561,7 +561,7 @@ $subject = 'Aaaaa aa Bbb';
 
 $numOf;
 
-echo 'Subject to anaylse: <b>'.$subject.'<br><br><br><br><br>';
+echo 'Subject to anaylse: <b>'.$subject.'<br><br><br><br><br></b>';
 
 preg_replace_callback_array(
     [
@@ -579,4 +579,73 @@ preg_replace_callback_array(
 
 echo $numOf;
 
+echo '<br>';
+
+
 //  17. Generator syntax
+
+function satNav() {
+
+    $distance = 0;
+
+    echo 'Start from driveway.';
+
+    yield '<br/> First stop.';
+
+    echo '<br/> Take a left.';
+
+    yield '<br/> Second stop sign.';
+
+    echo '<br/> Destination reached.';
+
+    echo '<br/> Your journey was '.$distance.' miles.';
+
+}
+
+$control = satNav();
+
+$val = $control->current();
+
+echo $val. 'concat 123';
+
+echo '<br>';
+
+$control->next();
+
+echo $control->current();
+
+$control->next();
+
+
+//  17. Generator yield values
+
+echo '<br><br><br>';
+
+function navi() {
+
+    $distance = 0;
+
+    echo 'Start from driveway.<br>';
+
+    $distance = yield;
+
+    echo  $distance . 'miles. <br> Take a left. <br>';
+
+    $distance = yield;
+
+    echo  $distance . 'miles. <br> Destination reached.';
+
+
+}
+
+$control = navi();
+
+$control->current();
+
+echo '<br>... Analysing distance ... <br><br>';
+
+$control->send( 50 );
+
+echo '<br>... Analysing distance ... <br><br>';
+
+$control->send( 70 );
