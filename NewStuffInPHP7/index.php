@@ -277,7 +277,7 @@ if( array(20,20, 200) <=> array(20,20,20,20) ){
 
 echo '<br>';
 
-//  5. Constant arrays using define
+//  6. Constant arrays using define
 
 /*
  *  two ways of defining constants, first
@@ -294,7 +294,7 @@ echo json_encode(PERSON, 128).'<br/><br/>'.json_encode(OFFICE, 128);
 
 echo '<br>';
 
-//  6. Anonymous classes
+//  7. Anonymous classes
 
 /*
  *
@@ -349,7 +349,7 @@ echo $framework->hello;
 echo '<br>';
 
 
-//  7. Unicode codepoint escape syntax
+//  8. Unicode codepoint escape syntax
 
 //old example
 echo '&pound;'."<br/>";
@@ -362,7 +362,7 @@ echo "\u{2200}";
 echo '<br>';
 
 
-//  8. Functional call context
+//  9. Functional call context
 
 /*
  * placing a function to variable, call method take  function as a object and only accept object
@@ -387,7 +387,7 @@ $con->call( new newObj());
 
 echo '<br>';
 
-//  9. Unserialize filtering
+//  10. Unserialize filtering
 
 
 class newOne {
@@ -410,17 +410,173 @@ $unserialized = unserialize($data, ["allowed_classes" => ["newOne"]]);//second p
 
 echo $unserialized->prop;
 
-//  10. Expectation
+//  11. Expectation
+
+//UNCOMMENT!!!
+
+//ini_set('assert.exception', 1 );//setting and turing on with a 1(setting option or configuration from ini_set)
+//
+//class HandleError extends AssertionError{//regular class recive
+//}
+//
+//$num = 'hello';
+//
+//assert(is_numeric($num ), new HandleError('some error text'));//assert construct, two parameters
 
 
-ini_set('assert.exception', 1 );//setting and turing on with a 1(setting option or configuration from ini_set)
-
-class HandleError extends AssertionError{//regular class recive
-}
-
-$num = 'hello';
-
-assert(is_numeric($num ), new HandleError('some error text'));//assert construct, two parameters
+//  12. Namespacing, use and group use declarations in php
 
 
+require 'namespace.php';
 
+//All this is very well working but it is not convenient way to do it.
+
+echo '<h2>Classes</h2>'.'<br/><br/>';
+
+$object = new php\complicated\hello;
+$object2 = new php\complicated\anothrclass;
+
+echo '<br/><br/>'.'<h2>Function</h2>'.'<br/><br/>';
+
+php\complicated\all();
+php\complicated\all2();
+
+echo '<br/><br/>'.'<h2>Constants</h2>'.'<br/><br/>';
+
+echo php\complicated\HELLO;
+echo php\complicated\GOODYE;
+
+//
+
+use php\complicated as using;//example you can think about this as a nickname
+//Now instead of using a php\complicated you can call your const, classes and function with just a nickname ;)
+
+//There are better ways
+//You can target namespace and name of the class or function.
+//Example
+
+use php\complicated\hello;
+use php\complicated\anothrclass as al;
+
+$batman = new hello;//if you don't have nickname, call is going by a class name
+$superman = new al;//this is creating object by nickname
+
+echo '<br>';
+
+//Same thing with function and const
+
+use function php\complicated\all;
+use function php\complicated\all2 as area51;
+
+all();//same ase if you don't give alias use name of function
+area51();
+
+echo '<br>';
+
+
+//use const php\complicated\HELLO; //Reason of commenting this is because we still have usage of this const. comment line 446 and tha uncomment this
+use const php\complicated\GOODYE as GB;
+
+//echo HELLO;
+echo GB;
+
+echo '<br>';
+
+//This is all old in php, now new stuff
+
+//USING GROUP
+
+use php\complicated\{
+    //hello,
+    anothrclass as area52,
+};
+
+use function php\complicated\{
+   // all,
+    all2 as area511,
+};
+
+use const php\complicated\{
+    HELLO,
+    GOODYE as GBY,
+};
+
+echo '<br>';
+
+//  13. Integer division
+
+
+/*
+ * This new method is using int for parameter , and is doing polymorphism
+ * return only how many times it can stay in first number, play with it and try it
+ * float number, value after comma is chop off
+ */
+
+
+echo intdiv(5, 2.9);
+
+echo '<br>';
+
+
+//  14. Session options
+
+session_start([ //start session on server and enables to store variables on server
+
+    'cache_limiter' => 'private',//change on options use asoc. array,
+    'read_and_close' => false,//read_and_close only available in php 7 when session is started
+
+]);
+
+$_SESSION['name'] = "Stefan";//Now again can use it info from server
+//Think about as temporary storage on server, can share with all other pages on site
+
+?>
+
+<a href="loggedin.php">Logged in</a>
+
+<?php
+
+//  15. Random bytes and random int functions
+
+/*
+ * New random method, very hard to crack
+ * random_bytes generate string with number of character
+ *
+ * random_int generate random number between two values min and max
+ */
+
+echo '<br>';
+
+echo random_bytes(100);
+
+echo '<br/><br/><br/>';
+
+echo random_int(1000, 10000000);
+
+echo '<br>';
+
+//  16. Revamped regular expression function
+
+$subject = 'Aaaaa aa Bbb';
+
+$numOf;
+
+echo 'Subject to anaylse: <b>'.$subject.'<br><br><br><br><br>';
+
+preg_replace_callback_array(
+    [
+        '~[a]+~i' => function ($match) { echo $match[0]. ' match found for [a] <br><br>'; },
+        '~[b]+~i' => function ($match) { echo $match[0]. ' match found for [b] <br><br>'; }
+    ],
+    $subject,
+
+    -1,
+
+    $numOf
+
+);
+
+
+echo $numOf;
+
+//  17. Generator syntax
