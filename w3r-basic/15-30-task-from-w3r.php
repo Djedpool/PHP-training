@@ -81,3 +81,91 @@
 //echo $a;
 //var_dump(error_get_last());
 // My solution and W3r solution are same so no need for writing both...
+
+/*
+ * 21. Twenty-first task
+ *   description:
+ *      Write a PHP function to test whether a number is greater than 30, 20 or 10 using ternary operator.
+ */
+// my quick solution
+//function compare($num) {
+//    echo $num>30 || $num>20 || $num>10 ? 'your number '.$num.' is greater than 30, 20 or 10 ' : 'your '.$num.' is not greater than this 30, 20 or 10';
+//}
+//
+//compare(31);
+
+//w3r solution
+//function trinary_Test($n){
+//    $r = $n > 30 ? "greater than 30" : ($n > 20 ? "greater than 20" : ($n >10 ? "greater than 10" : "Input a number atleast greater than 10!"));
+//    echo $n." : ".$r."<br>";
+//}
+//trinary_Test(32);
+//trinary_Test(21);
+//trinary_Test(12);
+//trinary_Test(4);
+
+/*
+ * 22. Twenty-second task
+ *   description:
+ *      Write a PHP script to get the full URL.
+ */
+
+//var_dump($_SERVER);
+//
+//$url = 'http//:'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+//
+//echo $url;
+
+/*
+ * 23. Twenty-third task
+ *   description:
+ *      Write a PHP script to compare the PHP version
+ */
+
+// My solution i get it from PHP.net
+//if(version_compare(PHP_VERSION, '7.0.0') >= 0) {
+//    echo 'I am at least PHP version 7.0.0, my version: ' . PHP_VERSION . "<br>";
+//}
+
+// W3r solution but i am think in that they found they solution on PHP.net too :D
+//if (version_compare(PHP_VERSION, '6.0.0') >= 0) {
+//    echo 'I am at least PHP version 6.0.0, my version: ' . PHP_VERSION . "\n";
+//}
+//if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
+//    echo 'I am at least PHP version 5.3.0, my version: ' . PHP_VERSION . "\n";
+//}
+//
+//if (version_compare(PHP_VERSION, '5.0.0', '>=')) {
+//    echo 'I am using PHP 5, my version: ' . PHP_VERSION . "\n";
+//}
+//
+//if (version_compare(PHP_VERSION, '5.0.0', '<')) {
+//    echo 'I am using PHP 4, my version: ' . PHP_VERSION . "\n";
+//}
+
+/*
+ * 24. Twenty-fourth task
+ *   description:
+ *      Write a PHP script to get the name of the owner of the current PHP script
+ */
+
+// My solution
+//var_dump(get_current_user()); // It is returning a owner of script
+
+// W3r solution
+//echo 'Current script owner: ' . get_current_user()."\n";
+
+/*
+ * 25. Twenty-fifth task
+ *   description:
+ *      Write a PHP script to get the document root directory under which the current script is executing, as defined in the server's configuration file.
+ */
+
+// My solution
+if(isset($_SERVER['DOCUMENT_ROOT'])) {
+    echo $_SERVER['DOCUMENT_ROOT'];
+}
+
+// W3r solution
+$rd = getenv('DOCUMENT_ROOT');
+echo $rd."\n";
