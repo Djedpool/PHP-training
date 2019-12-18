@@ -162,10 +162,65 @@
  */
 
 // My solution
-if(isset($_SERVER['DOCUMENT_ROOT'])) {
-    echo $_SERVER['DOCUMENT_ROOT'];
-}
+//if(isset($_SERVER['DOCUMENT_ROOT'])) {
+//    echo $_SERVER['DOCUMENT_ROOT'];
+//}
 
 // W3r solution
-$rd = getenv('DOCUMENT_ROOT');
-echo $rd."\n";
+//$rd = getenv('DOCUMENT_ROOT');
+//echo $rd."\n";
+
+/*
+ * 26. Twenty-sixth task
+ *   description:
+ *      Write a PHP script to get the information about the operating system PHP is running on
+ */
+//echo php_uname()."<br>";
+//echo PHP_OS."<br>";
+//if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+//    echo 'This is a server using Windows!';
+//} else {
+//    echo 'This is a server not using Windows!'."<br>";
+//}
+
+/*
+ * 27. Twenty-seventh task
+ *   description:
+ *      Write a PHP script to print out all the credits for PHP.
+ */
+//phpcredits(CREDITS_GROUP | CREDITS_DOCS | CREDITS_FULLPAGE);
+
+/*
+ * 28. Twenty-eight task
+ *   description:
+ *      Write a PHP script to get the directory path used for temporary files.
+ */
+
+// Create a temporary file in the temporary
+// files directory using sys_get_temp_dir()
+//$temp_file = tempnam(sys_get_temp_dir(), 'Tux');
+//echo $temp_file."<br>";
+/*
+ * 29. Twenty-ninth task
+ *   description:
+ *      Write a PHP script to get the names of the functions of a module. Go to the editor
+ *      Note : Find XML, JSON functions etc.
+ */
+
+//var_dump(get_extension_funcs("JSON"));
+//echo "<br>";
+//var_dump(get_extension_funcs("XML"))."<br>";
+
+/*
+ * 30. Thirtieth task
+ *   description:
+ *      Write a PHP script to get the time of the last modification of the current page.
+ */
+
+// My way
+$file = basename(__FILE__);
+$time_of_update = filemtime($file);
+echo "Last modified " . date("l, dS F, Y, h:ia", $time_of_update)."<br>";
+
+// W3r solution
+echo "Last modified: " . date ("F d Y H:i:s.", getlastmod())."<br>";
