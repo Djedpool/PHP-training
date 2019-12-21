@@ -12,6 +12,25 @@
  *      Write a PHP program to swap two variables.
  */
 
+//$first = 1;
+//$second = 2;
+//
+//$temp = $first;
+//$first = $second;
+//$second = $temp;
+//
+//echo $first . '<br>';
+//echo $second . '<br>';
+//
+//
+//// W3r solution
+//$a = 15;
+//$b = 276;
+//echo "<br> Before swapping:  ". $a . "," . $b;
+//list($a, $b) = array($b, $a);
+//echo "<br>  After swapping:  ". $a . "," . $b."<br>";
+
+
 /*
  * 32. Thirty-second
  *   description:
@@ -21,11 +40,29 @@
  *      For example, 153 is an Armstrong number since 1**3 + 5**3 + 3**3 = 153
  */
 
+//function armstrong_number($num) {
+//    $sl = strlen($num);
+//    $sum = 0;
+//    $num = (string)$num;
+//    for ($i = 0; $i < $sl; $i++) {
+//        $sum = $sum + pow((string)$num{$i},$sl);
+//    }
+//    if ((string)$sum == (string)$num) {
+//        return "True";
+//    } else {
+//        return "False";
+//    }
+//}
+//echo "Is 153 Armstrong number? ".armstrong_number(153);
+//echo "<br> Is 21 Armstrong number? ".armstrong_number(21);
+//echo "<br> Is 4587 Armstrong number? ".armstrong_number(4587);
+
 /*
  * 33. Thirty-third
  *   description:
  *      Write a PHP program to convert word to digit.
  */
+
 
 
 /*
