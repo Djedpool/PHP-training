@@ -2,7 +2,8 @@
     class User {
         //proterities
         public $username;
-        private $email; // pRivate access modifier
+        protected $email; // private access modifier
+        public $role = 'member';
 
         //methods
         public function __construct($username , $email) {
@@ -12,6 +13,10 @@
 
         public function addFriend() {
             return "$this->username added a new friend";
+        }
+
+        public function sendMessage() {
+            return "$this->email sent a new message";
         }
 
         public function getEmail() {
@@ -27,10 +32,15 @@
 
     class AdminUser extends User {
         public $level;
+        public $role = 'admin';
 
         public function __construct($username, $email, $level) {
             $this->level = $level;
             parent::__construct($username, $email);
+        }
+
+        public function sendMessage() {
+            return "$this->email, an admin, sent a new message";
         }
     }
 
@@ -39,7 +49,7 @@
     $userThree = new AdminUser('Sandvic', 'sandvic@netninja.co.uk', 5);
 
     var_dump($userThree);
-    echo $userThree->getEmail();
+    echo $userThree->sendMessage();
 
 //    echo $userOne->username.'<br>';
     // echo $userOne->email.'<br>'; // if is private we can no longer do this
