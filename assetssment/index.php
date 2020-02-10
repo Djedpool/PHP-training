@@ -146,6 +146,120 @@
 // - a-bd
 // - c-d-ed
 
-$a = array('a', 'b', 'c', 'd', 'e');
-echo implode('-', array_slice($a, 2));
-echo implode('-', array_slice($a, -2, 1));
+// $a = array('a', 'b', 'c', 'd', 'e');
+// echo implode('-', array_slice($a, 2));
+// echo implode('-', array_slice($a, -2, 1));
+
+// 10. What $res returns?
+
+// $r = 8;
+// $w = 1;
+// $x = 32;
+// $perms = 9;
+
+// if($perms  & $r) {
+//     $res .= 'r';
+// }
+
+// if($perms  & $w) {
+//     $res .= 'w';
+// }
+
+// if($perms  & $x) {
+//     $res .= 'x';
+// }
+
+// echo $res;
+
+// 11. What is the value of $counter?
+
+/*$counter = 0;
+
+try {
+    if($counter != 3) {
+        throw new Exception('grrr');
+    }
+    $counter++;
+} catch (Exception $e) {
+    // do nothing
+}
+
+echo $counter;*/
+
+/*
+
+// 12. What will this return?
+
+/*
+
+echo 5 % 3;
+echo 15 % 3;
+echo -5 % 4;
+echo 21 % 6;
+
+*/
+
+// 13. Value of immploded $a?
+
+/*
+    
+$a = array('a', 'c');
+
+array_unshift($a, 'f', 'g');
+echo implode('', $a);
+*/
+
+// 14.  What is the value of $a;
+
+/*$a = '10';
+
+switch($a) {
+    case 10;
+        $a += 5;
+    break;
+    default:
+        $a -= 5;
+    break;
+}
+*/
+
+// 15. What is the value of prop?
+
+/*class A {
+    protected $prop = 1;
+    function __get($name) {
+        return $this->name;
+    }
+    function __set($name, $value) {
+        $this->name = $value;
+    }
+}
+
+class B {
+    function __construct($a) {
+        $a->prop = 10;
+    }
+}
+
+$a = new A;
+$b = new B($a);
+
+$c = $a->prop;
+echo $c;*/
+
+// 16. What happens here?
+
+/*function do($somehing) {
+    print_r($somehing);
+}
+
+@do('work');*/
+
+// 17. What is the value and what means ^
+
+/*
+    $a = 9;
+    $b = 10;
+
+    echo $a ^ $b;
+*/

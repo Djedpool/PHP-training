@@ -21,7 +21,6 @@ if (isset($_POST['login'])) {
         $_SESSION['username'] = $db_username;
         
         die('Yes you are sucker!');
-        
     }
 
 
