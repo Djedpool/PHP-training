@@ -10,21 +10,21 @@
 
 // 1. What is the value of variable $r
 
-//class a {
-//    public function select($where) {
-//        $select = 1;
-//        if($where instanceof \Closure) {
-//            return $where($select);
-//        }
-//    }
-//}
-//
-//$t = new a;
-//$r = $t->select(function ($select){
-//    $select+1;
-//});
-//
-//var_dump($r);
+class a {
+   public function select($where) {
+       $select = 1;
+       if($where instanceof \Closure) {
+           return $where($select);
+       }
+   }
+}
+
+$t = new a;
+$r = $t->select(function ($select){
+   $select+1;
+});
+
+var_dump($r);
 
 // 2. What is the outcome of this piece of code?
 // -fatal error
