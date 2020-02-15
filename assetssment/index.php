@@ -10,21 +10,21 @@
 
 // 1. What is the value of variable $r
 
-class a {
-   public function select($where) {
-       $select = 1;
-       if($where instanceof \Closure) {
-           return $where($select);
-       }
-   }
-}
+// class a {
+//    public function select($where) {
+//        $select = 1;
+//        if($where instanceof \Closure) {
+//            return $where($select);
+//        }
+//    }
+// }
 
-$t = new a;
-$r = $t->select(function ($select){
-   $select+1;
-});
+// $t = new a;
+// $r = $t->select(function ($select){
+//    $select+1;
+// });
 
-var_dump($r);
+// var_dump($r);
 
 // 2. What is the outcome of this piece of code?
 // -fatal error
@@ -263,3 +263,15 @@ echo $c;*/
 
     echo $a ^ $b;
 */
+
+// 18. What is outcome of this piece of code?
+
+$string = '1234 12a34 12345 123';
+
+preg_match_all('/[0,9]{2,4}/', $string, $referers);
+
+var_export($referers);
+
+// 19. Does Traits support interfaces?
+
+// fALSE
