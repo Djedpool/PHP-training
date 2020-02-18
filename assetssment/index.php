@@ -266,12 +266,31 @@ echo $c;*/
 
 // 18. What is outcome of this piece of code?
 
-$string = '1234 12a34 12345 123';
-
-preg_match_all('/[0,9]{2,4}/', $string, $referers);
-
-var_export($referers);
+//$string = '1234 12a34 12345 123';
+//
+//preg_match_all('/[0,9]{2,4}/', $string, $referers);
+//
+//var_export($referers);
 
 // 19. Does Traits support interfaces?
 
 // fALSE
+
+// 20. Is this valid piece of code?
+
+//class a {
+//    private $a = 1;
+//    public function __set($name, $value) {
+//        throw new Exception("Go away");
+////        var_dump($name);
+////        var_dump($value);
+////        return $name;
+//    }
+//}
+//
+//$a = new a();
+//$a->b = 3;
+//
+//var_dump($a);
+
+// Answer: yes it is!
