@@ -52,6 +52,22 @@ class GFG {
         echo  "Unsetting '$name' <br>";
         unset($this->data[$name]);
     }
+
+    // Overloading methods only difference over the property overloading is that
+    // Overload methods can be used in both context, object and static
+    // Main operation is that overloading methods is for creating dynamic methods
+    // that are not declared inside class scope.
+    // Also triggers two magic methods.
+    // __call() - triggers when we invoke overloaded method in object context
+    // __callStatic() - -||-over the static context
+
+    public function __call($name, $arguments) {
+        echo "Calling object method '$name' " . implode(', ', $arguments). "<br>";
+    }
+
+    public static function __callStatic($name, $arguments) {
+        echo "Calling static method '$name' " . implode(', ', $arguments). "<br>";
+    }
 }
 
 $obj = new GFG();
@@ -67,3 +83,7 @@ var_dump(isset($obj->a));
 unset($obj->a);
 
 var_dump(isset($obj->a));
+
+$obj->runTest('in object context');
+
+$obj::runTest('in static context');
