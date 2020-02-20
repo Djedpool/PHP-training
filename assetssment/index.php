@@ -266,12 +266,86 @@ echo $c;*/
 
 // 18. What is outcome of this piece of code?
 
-$string = '1234 12a34 12345 123';
-
-preg_match_all('/[0,9]{2,4}/', $string, $referers);
-
-var_export($referers);
+//$string = '1234 12a34 12345 123';
+//
+//preg_match_all('/[0,9]{2,4}/', $string, $referers);
+//
+//var_export($referers);
 
 // 19. Does Traits support interfaces?
 
 // fALSE
+
+// 20. Is this valid piece of code?
+
+//class a {
+//    private $a = 1;
+//    public function __set($name, $value) {
+//        throw new Exception("Go away");
+////        var_dump($name);
+////        var_dump($value);
+////        return $name;
+//    }
+//}
+//
+//$a = new a();
+//$a->b = 3;
+//
+//var_dump($a);
+
+// Answer: yes it is!
+
+
+// 21 . If $squared contains the squared numbers what should NOT replace the underscores?
+
+//class A {
+//
+//    function squared($numbers) {
+//        return array_map(array($this, 'square'), $numbers);
+//    }
+//
+//    function square($n) {
+//        return pow(2, $n);
+//    }
+//
+//}
+//
+//$a = new A;
+//$numbers = array(2, 3, 4, 5);
+//$squared = $a->squared($numbers);
+//
+//
+//var_dump($squared);
+
+// Not correct way is to use array walk it does not support this kind of passing custom function
+
+// 22. What is output of this piece of code :
+
+//$s = 'key';
+//
+////printf("[%'*-20s]", $s);
+//printf("[%'d20s]", $s);
+
+//$num1 = 123456789;
+//$num2 = -123456789;
+//$char = 50; // The ASCII Character 50 is 2
+//
+//// Note: The format value "%%" returns a percent sign
+//printf("%%b = %b <br>",$num1); // Binary number
+//printf("%%c = %c <br>",$char); // The ASCII Character
+//printf("%%d = %d <br>",$num1); // Signed decimal number
+//printf("%%d = %d <br>",$num2); // Signed decimal number
+//printf("%%e = %e <br>",$num1); // Scientific notation (lowercase)
+//printf("%%E = %E <br>",$num1); // Scientific notation (uppercase)
+//printf("%%u = %u <br>",$num1); // Unsigned decimal number (positive)
+//printf("%%u = %u <br>",$num2); // Unsigned decimal number (negative)
+//printf("%%f = %f <br>",$num1); // Floating-point number (local settings aware)
+//printf("%%F = %F <br>",$num1); // Floating-point number (not local settings aware)
+//printf("%%g = %g <br>",$num1); // Shorter of %e and %f
+//printf("%%G = %G <br>",$num1); // Shorter of %E and %f
+//printf("%%o = %o <br>",$num1); // Octal number
+//printf("%%s = %s <br>",$num1); // String
+//printf("%%x = %x <br>",$num1); // Hexadecimal number (lowercase)
+//printf("%%X = %X <br>",$num1); // Hexadecimal number (uppercase)
+//printf("%%+d = %+d <br>",$num1); // Sign specifier (positive)
+//printf("%%+d = %+d <br>",$num2); // Sign specifier (negative)
