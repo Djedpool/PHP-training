@@ -10,8 +10,6 @@ class App {
     {
         $url = $this->parseUrl();
 
-        print_r($url);
-
         if(file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller' . '.php')) {
             $this->controller = ucfirst($url[0]) . 'Controller';
             unset($url[0]);
@@ -27,6 +25,10 @@ class App {
                 unset($url[1]);
             }
         }
+
+        $this->params = $url ? array_values($url) : [];
+
+        call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
     public function parseUrl()
