@@ -28,11 +28,29 @@
     <?php
         include 'config/database.php';
 
-        // delete message prompt will be here
+        // PAGINATION VARIABLES
+        // page is the current page, if there's nothing set, default is page 1
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-        // select all data
-        $query = "SELECT id, name, description, price FROM products ORDER BY id DESC";
+        // set records or rows of data per page
+        $records_per_page = 5;
+
+        // calculate for the query LIMIT clause
+        $from_record_num = ($records_per_page * $page) - $records_per_page;
+
+        $action = isset($_GET['action']) ? $_GET['action'] : "";
+
+        // if it was redirected from delete.php
+        if($action=='deleted'){
+            echo "<div class='alert alert-success'>Record was deleted.</div>";
+        }
+
+        // select data for current page
+        $query = "SELECT id, name, description, price FROM products ORDER BY id DESC LIMIT :from_record_num, :records_per_page";
+
         $stmt = $con->prepare($query);
+        $stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);
+        $stmt->bindParam(":records_per_page", $records_per_page, PDO::PARAM_INT);
         $stmt->execute();
 
         // this is how get number of rows returned
@@ -75,9 +93,38 @@
         }
         // end table
         echo "</table>";
+
+        // PAGINATION
+        // count total number of rows
+        $query = "SELECT COUNT(*) as total_rows FROM products";
+        $stmt = $con->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        // get total rows
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $total_rows = $row['total_rows'];
+
+        // paginate records
+        $page_url="index.php?";
+        include_once "paging.php";
     ?>
 </div>
 <!-- end .container -->
+
+<script type='text/javascript'>
+    // confirm record deletion
+    function delete_user( id ){
+
+        var answer = confirm('Are you sure?');
+        if (answer){
+            // if user clicked ok,
+            // pass the id to delete.php and execute the delete query
+            window.location = 'delete.php?id=' + id;
+        }
+    }
+</script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
